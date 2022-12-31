@@ -21,8 +21,6 @@ myLambdaMult = \x y z -> x * y * z
 myRecip :: Fractional a => a -> a
 myRecip n = 1 / n
 
-myHead (x : _) = x
-
 mySignum :: (Ord a1, Num a1, Num a2) => a1 -> a2
 mySignum n
   | n > 0 = -2
@@ -44,9 +42,6 @@ lambdaResult = (* 2) 2
 
 myPositions :: Ord x => x -> [x] -> [Int]
 myPositions x y = [i | (x', i) <- zip y [0 ..], x' == x]
-
-myThird :: [a] -> a
-myThird (_ : _ : x : _) = x
 
 mySafeTail :: [a] -> [a]
 mySafeTail [] = []
@@ -193,6 +188,6 @@ myArea :: MyShape -> Float
 myArea (MyCircle) = pi
 myArea (MyRect x y) = x * y
 
-main = putStrLn (show (res))
-  where
-    res = myArea (MyCircle)
+main = do
+  res <- getChar
+  print res
